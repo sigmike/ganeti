@@ -162,7 +162,8 @@ docrst = \
 doc/html/.stamp: $(docrst) $(docpng) doc/conf.py configure.ac
 	@test -n "$(SPHINX)" || \
 	    { echo 'sphinx-build' not found during configure; exit 1; }
-	PYTHONPATH=. $(RUN_IN_TEMPDIR) $(SPHINX) -q -W -b html \
+	mkdir -p $(CURDIR)/doc/html
+	PYTHONPATH=. $(RUN_IN_TEMPDIR) $(SPHINX) -q -b html \
 	    -d . \
 	    -D version="$(VERSION_MAJOR).$(VERSION_MINOR)" \
 	    -D release="$(PACKAGE_VERSION)" \
