@@ -237,7 +237,7 @@ def InitCluster(cluster_name, mac_prefix,
                 nicparams=None, hvparams=None, enabled_hypervisors=None,
                 modify_etc_hosts=True, modify_ssh_setup=True,
                 maintain_node_health=False,
-                uid_pool=None):
+                uid_pool=None, force=False):
   """Initialise the cluster.
 
   @type candidate_pool_size: int
@@ -245,8 +245,8 @@ def InitCluster(cluster_name, mac_prefix,
 
   """
   # TODO: complete the docstring
-  if config.ConfigWriter.IsCluster():
-    raise errors.OpPrereqError("Cluster is already initialised",
+  if config.ConfigWriter.IsCluster() and not force:
+    raise errors.OpPrereqError("Cluster is already initialised (use --force to ignore)",
                                errors.ECODE_STATE)
 
   if not enabled_hypervisors:

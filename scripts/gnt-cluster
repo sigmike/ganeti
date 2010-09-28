@@ -112,6 +112,7 @@ def InitCluster(opts, args):
                         modify_ssh_setup=opts.modify_ssh_setup,
                         maintain_node_health=opts.maintain_node_health,
                         uid_pool=uid_pool,
+                        force=opts.force
                         )
   op = opcodes.OpPostInitCluster()
   SubmitOpCode(op, opts=opts)
@@ -753,7 +754,7 @@ commands = {
      HVLIST_OPT, MAC_PREFIX_OPT, MASTER_NETDEV_OPT, NIC_PARAMS_OPT,
      NOLVM_STORAGE_OPT, NOMODIFY_ETCHOSTS_OPT, NOMODIFY_SSH_SETUP_OPT,
      SECONDARY_IP_OPT, VG_NAME_OPT, MAINTAIN_NODE_HEALTH_OPT,
-     UIDPOOL_OPT],
+     UIDPOOL_OPT, FORCE_OPT],
     "[opts...] <cluster_name>", "Initialises a new cluster configuration"),
   'destroy': (
     DestroyCluster, ARGS_NONE, [YES_DOIT_OPT],
