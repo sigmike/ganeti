@@ -503,7 +503,7 @@ def SetupNodeDaemon(cluster_name, node, ssh_key_check):
   _WaitForNodeDaemon(node)
 
 
-def MasterFailover(no_voting=False):
+def MasterFailover(no_voting=False, force=False):
   """Failover the master node.
 
   This checks that we are not already the master, and will cause the
@@ -521,7 +521,7 @@ def MasterFailover(no_voting=False):
   node_list = sstore.GetNodeList()
   mc_list = sstore.GetMasterCandidates()
 
-  if old_master == new_master:
+  if old_master == new_master and not force:
     raise errors.OpPrereqError("This commands must be run on the node"
                                " where you want the new master to be."
                                " %s is already the master" %

@@ -487,7 +487,7 @@ def MasterFailover(opts, args):
     if not AskUser(usertext):
       return 1
 
-  return bootstrap.MasterFailover(no_voting=opts.no_voting)
+  return bootstrap.MasterFailover(no_voting=opts.no_voting, force=opts.force)
 
 
 def SearchTags(opts, args):
@@ -779,7 +779,7 @@ commands = {
     RepairDiskSizes, ARGS_MANY_INSTANCES, [],
     "", "Updates mismatches in recorded disk sizes"),
   'masterfailover': (
-    MasterFailover, ARGS_NONE, [NOVOTING_OPT],
+    MasterFailover, ARGS_NONE, [NOVOTING_OPT, FORCE_OPT],
     "", "Makes the current node the master"),
   'version': (
     ShowClusterVersion, ARGS_NONE, [],
