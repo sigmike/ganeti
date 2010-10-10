@@ -438,7 +438,7 @@ HOOKS_VERSION
   to the version 2.
 
 HOOKS_PHASE
-  One of *PRE* or *POST* denoting which phase are we in.
+  One of *pre* or *post* denoting which phase are we in.
 
 CLUSTER
   The cluster name.
