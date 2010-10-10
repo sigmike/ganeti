@@ -30,6 +30,8 @@ depending on the operation type.
 Note that, even though we call them scripts, we are actually talking
 about any executable.
 
+Scripts are run under the directory /etc/ganeti/hooks/<operation>-<phase>.d. For example the "pre instance start" scripts must be located in /etc/ganeti/hooks/instance-start-pre.d/
+
 *pre* scripts
 ~~~~~~~~~~~~~
 
